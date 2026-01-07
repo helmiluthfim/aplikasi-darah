@@ -1,9 +1,15 @@
+"use client";
 import React, { useState } from "react"; // Tambahkan useState
 import { ChevronLeft, ArrowRight, X } from "lucide-react"; // Tambahkan icon X
 import { modules } from "@/data/modules";
 
 export default function LearnView({ setView, activeModule, setActiveModule }) {
   const currentData = modules[activeModule];
+
+  if (!currentData) {
+    return null;
+    // atau bisa ganti skeleton/loader jika mau
+  }
 
   // State untuk menyimpan URL gambar yang sedang di-zoom
   const [fullscreenImage, setFullscreenImage] = useState(null);

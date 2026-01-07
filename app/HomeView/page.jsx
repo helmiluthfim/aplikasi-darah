@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { ArrowRight, BookOpen, Gamepad2 } from "lucide-react";
 
