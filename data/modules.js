@@ -7,7 +7,15 @@ import {
   TrendingDown,
   Network,
   Droplet,
+  Utensils,
+  ShieldAlert,
+  Brain,
+  Moon,
+  Scale,
+  Stethoscope,
+  ChevronDown,
 } from "lucide-react";
+import { color } from "framer-motion";
 
 /* ================= COMPONENT GAMBAR ================= */
 const ContentImage = ({ src, caption }) => (
@@ -30,6 +38,126 @@ const ContentImage = ({ src, caption }) => (
     </p>
   </div>
 );
+
+const preventionItems = [
+  {
+    title: "Pola Makan Sehat",
+    icon: Utensils,
+    color: "text-green-400",
+    description:
+      "Konsumsi sayur, buah, dan biji-bijian; kurangi lemak jenuh, gula, dan garam.",
+    link: "https://keslan.kemkes.go.id/view_artikel/3467/pola-makan-yang-sehat",
+  },
+  {
+    title: "Rutin Berolahraga",
+    icon: Activity,
+    color: "text-blue-400",
+    description:
+      "Aktivitas fisik minimal 30 menit per hari seperti jalan kaki atau bersepeda.",
+    link: "https://www.kemkes.go.id/id/cegah-stroke-dengan-aktivitas-fisik",
+  },
+  {
+    title: "Hindari Rokok & Alkohol",
+    icon: ShieldAlert,
+    color: "text-red-400",
+    description:
+      "Merokok merusak pembuluh darah dan alkohol berlebih meningkatkan risiko jantung.",
+    link: "https://keslan.kemkes.go.id/view_artikel/3779/serangan-jantung-pada-usia-muda-memangnya-bisa",
+  },
+  {
+    title: "Kelola Stres",
+    icon: Brain,
+    color: "text-purple-400",
+    description: "Meditasi dan relaksasi membantu menurunkan tekanan darah.",
+    link: "https://keslan.kemkes.go.id/view_artikel/2350/manfaat-meditasi-untuk-kesehatan-jantung",
+  },
+  {
+    title: "Tidur & Berat Badan Ideal",
+    icon: Moon,
+    color: "text-indigo-400",
+    description:
+      "Tidur cukup dan menjaga berat badan menurunkan risiko penyakit jantung.",
+    link: "https://keslan.kemkes.go.id/view_artikel/814/pentingnya-cegah-obesitas-dan-hipertensi-untuk-kinerja-optimal",
+  },
+  {
+    title: "Cek Kesehatan Rutin",
+    icon: Stethoscope,
+    color: "text-teal-400",
+    description:
+      "Pantau tekanan darah, kolesterol, dan gula darah secara berkala.",
+    link: "https://ayosehat.kemkes.go.id/jenis-pemeriksaan-kesehatan-berkala-untuk-cek-kondisi-tubuh-anda-",
+  },
+];
+
+const penyakitItems = [
+  {
+    title: "Hipertensi (Tekanan Darah Tinggi)",
+    content: (
+      <p>
+        Hipertensi adalah kondisi tekanan darah tinggi kronis yang sering
+        disebut
+        <strong className="text-red-500"> “pembunuh diam-diam” </strong>
+        karena jarang bergejala namun meningkatkan risiko stroke, penyakit
+        jantung, dan gagal ginjal.
+      </p>
+    ),
+  },
+  {
+    title: "Aterosklerosis",
+    content: (
+      <>
+        <p>
+          Aterosklerosis terjadi akibat penumpukan plak lemak pada dinding
+          arteri yang menyebabkan penyempitan dan pengerasan pembuluh darah.
+        </p>
+      </>
+    ),
+  },
+  {
+    title: "Penyakit Jantung Koroner",
+    content: (
+      <>
+        <p>
+          Penyakit jantung koroner terjadi saat arteri koroner menyempit akibat
+          plak, sehingga suplai oksigen ke jantung berkurang.
+        </p>
+      </>
+    ),
+  },
+  {
+    title: "Anemia",
+    content: (
+      <>
+        <p>
+          Anemia adalah kondisi kekurangan sel darah merah atau hemoglobin
+          sehingga pengangkutan oksigen terganggu.
+        </p>
+      </>
+    ),
+  },
+  {
+    title: "Leukemia",
+    content: (
+      <>
+        <p>
+          Leukemia merupakan kanker jaringan pembentuk darah yang ditandai
+          produksi sel darah putih abnormal.
+        </p>
+      </>
+    ),
+  },
+  {
+    title: "Hemofilia",
+    content: (
+      <>
+        <p>
+          Hemofilia adalah kelainan genetik yang menyebabkan darah sulit membeku
+          akibat kekurangan faktor pembekuan.
+        </p>
+      </>
+    ),
+  },
+];
 
 /* ================= DATA MODULE ================= */
 export const modules = [
@@ -96,10 +224,6 @@ export const modules = [
     content: (
       <div className="bg-black p-6 rounded-3xl border border-white/10">
         <h3 className="text-xl font-bold text-rose-400 mb-4">Jantung</h3>
-        <ContentImage
-          src="/jantung.jpeg"
-          caption="Struktur anatomi jantung manusia"
-        />
         <p className="text-gray-400 text-sm md:text-base">
           {" "}
           Jantung adalah organ berotot yang berfungsi memompa darah ke seluruh
@@ -109,6 +233,10 @@ export const modules = [
           sistem peredaran darah yang terdiri atas jantung, pembuluh darah, dan
           darah.{" "}
         </p>
+        <ContentImage
+          src="/jantung.jpeg"
+          caption="Struktur anatomi jantung manusia"
+        />
       </div>
     ),
     videoUrl: "https://www.youtube.com/embed/ZW6RoS7BPZ0",
@@ -124,10 +252,6 @@ export const modules = [
     content: (
       <div className="bg-black p-6 rounded-3xl border border-white/10">
         <h3 className="text-xl font-bold text-orange-400 mb-4">Arteri</h3>
-        <ContentImage
-          src="https://st2.depositphotos.com/1067125/6855/v/950/depositphotos_68556233-stock-illustration-healthy-artery-and-heart-anatomy.jpg"
-          caption="Struktur pembuluh arteri"
-        />
         <p className="text-gray-400 text-sm md:text-base">
           {" "}
           Arteri adalah pembuluh darah yang bertugas mengalirkan darah keluar
@@ -143,6 +267,10 @@ export const modules = [
           kokoh untuk menjaga kelancaran aliran darah ke seluruh jaringan
           tubuh.{" "}
         </p>
+        <ContentImage
+          src="https://st2.depositphotos.com/1067125/6855/v/950/depositphotos_68556233-stock-illustration-healthy-artery-and-heart-anatomy.jpg"
+          caption="Struktur pembuluh arteri"
+        />
       </div>
     ),
     videoUrl: "https://www.youtube.com/embed/ZW6RoS7BPZ0",
@@ -158,10 +286,6 @@ export const modules = [
     content: (
       <div className="bg-black p-6 rounded-3xl border border-white/10">
         <h3 className="text-xl font-bold text-indigo-400 mb-4">Vena</h3>
-        <ContentImage
-          src="https://www.pelajaran.co.id/wp-content/uploads/2016/03/Pembuluh-Darah-2.jpg"
-          caption="Struktur pembuluh vena"
-        />
         <p className="text-gray-400 text-sm md:text-base">
           {" "}
           Vena adalah pembuluh darah yang bertugas mengalirkan darah dari
@@ -176,6 +300,10 @@ export const modules = [
           kepulangan darah ke jantung setelah selesai mengantarkan nutrisi ke
           seluruh sel tubuh.{" "}
         </p>
+        <ContentImage
+          src="https://www.pelajaran.co.id/wp-content/uploads/2016/03/Pembuluh-Darah-2.jpg"
+          caption="Struktur pembuluh vena"
+        />
       </div>
     ),
     videoUrl: "https://www.youtube.com/embed/ZW6RoS7BPZ0",
@@ -191,10 +319,6 @@ export const modules = [
     content: (
       <div className="bg-black p-6 rounded-3xl border border-white/10">
         <h3 className="text-xl font-bold text-emerald-400 mb-4">Kapiler</h3>
-        <ContentImage
-          src="https://thumb.viva.id/vivapurwasuka/1265x711/2025/10/01/68dc2aeb8584a-ilustrasi-pembuluh-darah_purwasuka.jpg"
-          caption="Jaringan pembuluh kapiler"
-        />
         <p className="text-gray-400 text-sm md:text-base">
           {" "}
           Pembuluh kapiler adalah pembuluh darah terkecil dan terhalus yang
@@ -207,6 +331,10 @@ export const modules = [
           yang memastikan setiap sel di seluruh pelosok tubuh mendapatkan
           pasokan darah yang dibutuhkan.{" "}
         </p>
+        <ContentImage
+          src="https://thumb.viva.id/vivapurwasuka/1265x711/2025/10/01/68dc2aeb8584a-ilustrasi-pembuluh-darah_purwasuka.jpg"
+          caption="Jaringan pembuluh kapiler"
+        />
       </div>
     ),
     videoUrl: "https://www.youtube.com/embed/ZW6RoS7BPZ0",
@@ -235,5 +363,92 @@ export const modules = [
       </div>
     ),
     videoUrl: "https://www.youtube.com/embed/Eh1yMDi6wAo",
+  },
+
+  {
+    id: "penyakit",
+    title: "Gangguan & Penyakit",
+    icon: <Droplet className="w-6 h-6 text-red-500" />,
+    color: "from-red-500 to-rose-700",
+    theme: "#ef4444",
+    content: (
+      <div className="space-y-5">
+        <h3 className="text-xl font-bold text-red-400">
+          Gangguan & Penyakit Sistem Peredaran Darah
+        </h3>
+
+        <p className="text-gray-400 text-sm md:text-base">
+          Gangguan pada sistem peredaran darah dapat menyebabkan berbagai
+          penyakit serius. Berikut adalah beberapa penyakit yang umum terjadi.
+        </p>
+
+        <div className="space-y-4">
+          {penyakitItems.map((item, index) => (
+            <details
+              key={index}
+              className="group bg-slate-900/60 border border-slate-700 rounded-xl p-4 transition"
+            >
+              <summary className="cursor-pointer font-semibold text-white flex justify-between items-center">
+                {item.title}
+                <ChevronDown className="text-red-400 group-open:rotate-180 transition" />
+              </summary>
+
+              <div className="mt-4 text-gray-300 text-sm leading-relaxed">
+                {item.content}
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    ),
+    videoUrl: "https://www.youtube.com/embed/a3J4Jo2uTlU?si=JdnMLz3rg0c1yanB",
+  },
+
+  {
+    id: "pencegahan",
+    title: "Upaya & Pencegahan",
+    subtitle: "Menjaga Sistem Peredaran Darah",
+    icon: <ShieldAlert className="w-6 h-6 text-blue-400" />,
+    color: "from-blue-500 to-blue-700",
+    theme: "#3b82f6",
+    content: (
+      <div className="space-y-6">
+        <div>
+          <h3 className="text-xl font-bold text-blue-400 mb-3">
+            Upaya & Pencegahan
+          </h3>
+          <p className="text-gray-400 text-sm md:text-base">
+            Langkah-langkah berikut terbukti efektif dalam menjaga kesehatan
+            sistem peredaran darah dan menurunkan risiko penyakit
+            kardiovaskular.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {preventionItems.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <a
+                key={index}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-slate-800/50 backdrop-blur-md p-5 rounded-xl border border-slate-700 hover:border-slate-500 transition shadow-lg hover:shadow-xl hover:scale-[1.02]"
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <Icon className={item.color} size={22} />
+                  <h4 className="font-semibold text-white">{item.title}</h4>
+                </div>
+                <p className="text-gray-400 text-sm">{item.description}</p>
+                <span className="inline-block mt-3 text-xs text-blue-400 hover:underline">
+                  Baca artikel →
+                </span>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    ),
+    videoUrl: "https://www.youtube.com/embed/a3J4Jo2uTlU?si=JdnMLz3rg0c1yanB",
   },
 ];
