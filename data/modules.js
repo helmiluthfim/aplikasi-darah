@@ -97,7 +97,7 @@ export const modules = [
       <div className="bg-black p-6 rounded-3xl border border-white/10">
         <h3 className="text-xl font-bold text-rose-400 mb-4">Jantung</h3>
         <ContentImage
-          src="https://cdn.hellosehat.com/wp-content/uploads/2018/03/anatomi-jantung-01-1024x977.png"
+          src="/jantung.jpeg"
           caption="Struktur anatomi jantung manusia"
         />
         <p className="text-gray-400 text-sm md:text-base">
