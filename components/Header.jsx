@@ -9,7 +9,7 @@ export default function Header() {
           <Activity size={18} className="text-white" />
         </div>
         <span className="font-black text-lg tracking-tighter">
-          HEMO<span className="text-rose-500">LEARN</span>
+          <span className="text-rose-500">BLOOD</span>FLOW
         </span>
       </div>
       <div className="flex gap-2">

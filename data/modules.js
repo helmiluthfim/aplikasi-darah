@@ -46,7 +46,8 @@ const preventionItems = [
     color: "text-green-400",
     description:
       "Konsumsi sayur, buah, dan biji-bijian; kurangi lemak jenuh, gula, dan garam.",
-    link: "https://keslan.kemkes.go.id/view_artikel/3467/pola-makan-yang-sehat",
+    video:
+      "https://keslan.kemkes.go.id/view_artikel/3467/pola-makan-yang-sehat",
   },
   {
     title: "Rutin Berolahraga",
@@ -101,6 +102,7 @@ const penyakitItems = [
         jantung, dan gagal ginjal.
       </p>
     ),
+    video: "https://youtu.be/-RD0z-9XKAo?si=faBRAsqttBok_X4x",
   },
   {
     title: "Aterosklerosis",
@@ -112,6 +114,22 @@ const penyakitItems = [
         </p>
       </>
     ),
+    video: "https://youtu.be/njT428_JYzI?si=LfDSCb7a0EeTZppb",
+  },
+  {
+    title: "Tekanan Darah Rendah",
+    content: (
+      <>
+        <p>
+          Tekanan darah rendah (hipotensi) adalah kondisi saat tekanan darah
+          berada di bawah normal, yaitu di bawah 90/60 mmHg, yang dapat
+          menyebabkan aliran darah tidak cukup ke organ vital, menimbulkan
+          gejala pusing, lemas, pandangan kabur, mual, bahkan pingsan karena
+          kurangnya oksigen dan nutrisi ke otak dan organ lain.
+        </p>
+      </>
+    ),
+    video: "https://youtu.be/E5A_MNtQqHw?si=AUKQPTHMkHHdaFRM",
   },
   {
     title: "Penyakit Jantung Koroner",
@@ -123,6 +141,7 @@ const penyakitItems = [
         </p>
       </>
     ),
+    video: "https://youtu.be/SABIkN0-WPQ?si=be_DsxjRS5wH5D1-",
   },
   {
     title: "Anemia",
@@ -134,6 +153,7 @@ const penyakitItems = [
         </p>
       </>
     ),
+    video: "https://youtu.be/o3LHWkbbU6M?si=R5Jl4F9-YUchKZSR",
   },
   {
     title: "Leukemia",
@@ -145,6 +165,7 @@ const penyakitItems = [
         </p>
       </>
     ),
+    video: "https://youtu.be/6xdgRo97YZM?si=VdhzhENhZQYRkqei",
   },
   {
     title: "Hemofilia",
@@ -156,6 +177,7 @@ const penyakitItems = [
         </p>
       </>
     ),
+    video: "https://youtube.com/shorts/Glm1WR7VLAg?si=ihvz0ZjatKYqf3Zi",
   },
 ];
 
@@ -372,36 +394,84 @@ export const modules = [
     color: "from-red-500 to-rose-700",
     theme: "#ef4444",
     content: (
-      <div className="space-y-5">
+      <div className="space-y-6">
         <h3 className="text-xl font-bold text-red-400">
           Gangguan & Penyakit Sistem Peredaran Darah
         </h3>
 
         <p className="text-gray-400 text-sm md:text-base">
-          Gangguan pada sistem peredaran darah dapat menyebabkan berbagai
-          penyakit serius. Berikut adalah beberapa penyakit yang umum terjadi.
+          Berikut adalah beberapa gangguan dan penyakit yang dapat terjadi
+          apabila sistem peredaran darah tidak berfungsi secara optimal.
         </p>
 
         <div className="space-y-4">
           {penyakitItems.map((item, index) => (
             <details
               key={index}
-              className="group bg-slate-900/60 border border-slate-700 rounded-xl p-4 transition"
+              className="
+              group rounded-2xl border border-slate-700 
+              bg-gradient-to-br from-slate-900/80 to-slate-800/40
+              p-5 transition-all duration-300
+              open:border-red-500/50 open:shadow-lg
+            "
             >
-              <summary className="cursor-pointer font-semibold text-white flex justify-between items-center">
-                {item.title}
-                <ChevronDown className="text-red-400 group-open:rotate-180 transition" />
+              {/* ===== HEADER ===== */}
+              <summary
+                className="
+                flex items-center justify-between cursor-pointer
+                list-none
+              "
+              >
+                <div className="flex items-center gap-3">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-red-500/20 text-red-400 text-sm font-bold">
+                    {index + 1}
+                  </span>
+
+                  <h4 className="font-semibold text-white group-open:text-red-400 transition">
+                    {item.title}
+                  </h4>
+                </div>
+
+                <ChevronDown
+                  className="
+                  text-red-400 transition-transform duration-300
+                  group-open:rotate-180
+                "
+                  size={20}
+                />
               </summary>
 
-              <div className="mt-4 text-gray-300 text-sm leading-relaxed">
+              {/* ===== CONTENT ===== */}
+              <div
+                className="
+                mt-4 space-y-4 text-gray-300 text-sm leading-relaxed
+                animate-in fade-in slide-in-from-top-2 duration-300
+              "
+              >
                 {item.content}
+
+                <div className="flex flex-wrap items-center gap-3 pt-2">
+                  <a
+                    href={item.video}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                    inline-flex items-center gap-2
+                    text-xs px-4 py-2 rounded-full
+                    bg-red-500/20 text-red-400
+                    hover:bg-red-500/30 transition
+                  "
+                  >
+                    ▶️ Tonton Video
+                  </a>
+                </div>
               </div>
             </details>
           ))}
         </div>
       </div>
     ),
-    videoUrl: "https://www.youtube.com/embed/a3J4Jo2uTlU?si=JdnMLz3rg0c1yanB",
+    videoUrl: "https://www.youtube.com/embed/a3J4Jo2uTlU",
   },
 
   {
