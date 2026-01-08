@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { ArrowRight, BookOpen, Gamepad2 } from "lucide-react";
+import { ArrowRight, BookOpen, Brain, Gamepad2 } from "lucide-react";
 
 export default function HomeView({ setView }) {
   return (
@@ -56,6 +56,16 @@ export default function HomeView({ setView }) {
           </div>
           <h4 className="font-bold text-sm">Mini Game</h4>
           <p className="text-[10px] text-slate-500">Kejar Skor Tinggi</p>
+        </div>
+        <div
+          onClick={() => setView("kuis")}
+          className="bg-slate-900 border border-white/5 p-6 rounded-[2rem] hover:bg-slate-800 transition"
+        >
+          <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-400 rounded-xl flex items-center justify-center mb-4">
+            <Brain className="text-white" size={20} />
+          </div>
+          <h4 className="font-bold text-sm">Kuis</h4>
+          <p className="text-[10px] text-slate-500">Uji Pengetahuanmu</p>
         </div>
       </div>
     </div>

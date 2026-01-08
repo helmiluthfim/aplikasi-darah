@@ -5,6 +5,7 @@ import Game from "@/components/Game";
 import Header from "@/components/Header";
 import HomeView from "./HomeView/page";
 import LearnView from "./LearnView/page";
+import KuisView from "./KuisView/page";
 
 export default function HemoLearnApp() {
   const [view, setView] = useState("home");
@@ -23,6 +24,15 @@ export default function HemoLearnApp() {
         {/* LEARN VIEW */}
         {view === "learn" && (
           <LearnView
+            setView={setView}
+            activeModule={activeModule}
+            setActiveModule={setActiveModule}
+          />
+        )}
+
+        {/* KUIS VIEW */}
+        {view === "kuis" && (
+          <KuisView
             setView={setView}
             activeModule={activeModule}
             setActiveModule={setActiveModule}
